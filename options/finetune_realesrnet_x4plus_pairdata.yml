@@ -18,8 +18,8 @@ datasets:
   train: # the 1st test dataset
     name: Dacon_train
     type: PairedImageDataset
-    dataroot_gt: ./inputs/train/hr
-    dataroot_lq: ./inputs/train/lr
+    dataroot_gt: ./gcs/compete/train/hr
+    dataroot_lq: ./gcs/compete/train/lr
     io_backend:
       type: disk
 
@@ -53,8 +53,8 @@ network_d:
 path:
   # use the pre-trained Real-ESRNet model
   #pretrain_network_g: experiments/pretrained_models/RealESRGAN_x4plus.pth
-  #pretrain_network_g: ./weights/RealESRGAN_x4plus.pth
-  pretrain_network_g: ./weights/net_g_95000.pth
+  pretrain_network_g: ./github_greatprof_real_esrgan-sr/weights/RealESRGAN_x4plus.pth
+  #pretrain_network_g: ./weights/net_g_95000.pth
   param_key_g: params_ema
   strict_load_g: false
   resume_state: ~

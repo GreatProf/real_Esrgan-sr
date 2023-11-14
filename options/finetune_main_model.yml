@@ -16,10 +16,10 @@ high_order_degradation: False # do not use the high-order degradation generation
 datasets:
 
   train: # the 1st test dataset
-    name: Dacon_train2
+    name: train_main
     type: PairedImageDataset
-    dataroot_gt: ./gcs2/compete/train/hr
-    dataroot_lq: ./train/sr
+    dataroot_gt: ./dataset/train/hr
+    dataroot_lq: ./dataset/train/sr
     io_backend:
       type: disk
 
@@ -54,7 +54,7 @@ path:
   # use the pre-trained Real-ESRNet model
   #pretrain_network_g: experiments/pretrained_models/RealESRGAN_x4plus.pth
   #pretrain_network_g: ./weights/net_g_95000.pth
-  pretrain_network_g: ./github_greatprof_real_esrgan-sr/weights/155000.pth
+  pretrain_network_g: ./weights/RealESRGAN_x4plus.pth
   param_key_g: params_ema
   strict_load_g: false
   resume_state: ~

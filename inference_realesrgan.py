@@ -94,6 +94,7 @@ def main():
     parser.add_argument(
         '-g', '--gpu-id', type=int, default=None, help='gpu device to use (default=None) can be 0,1,2 for multi-gpu')
     parser.add_argument('--ensemble', type=str, default=None, help='ensemble algorithm')
+    parser.add_argument('--resize', type=int, default=0, help='resize image like lr shape')
 
     args = parser.parse_args()
 
@@ -150,6 +151,8 @@ def main():
                 output = GEOMETERY_ENSEMBLE(upsampler, img, args.outscale)
             else:
                 output, _ = upsampler.enhance(img, outscale=args.outscale)
+            if args.resize != 0:
+                output = cv2.resize(output, (args.resize, args.resize))
         except RuntimeError as error:
             print('Error', error)
             print('If you encounter CUDA out of memory, try to set --tile with a smaller number.')

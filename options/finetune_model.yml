@@ -1,5 +1,5 @@
 # general settings
-name: finetune_sub_model
+name: finetune_model
 model_type: RealESRNetModel
 scale: 4
 num_gpu: auto
